@@ -3,7 +3,7 @@ import express from 'express';
 import { servicesData } from '../data/servicesData.js';
 import { members } from '../data/members.js';
 
-export const serviceMembersRouter = express.Router();
+export const serviceMembersRouter = express.Router({mergeParams:true,});
 
 serviceMembersRouter.get('/', (req, res) => {
     if (servicesData.includes(req.params.serviceName)) {
@@ -15,6 +15,7 @@ serviceMembersRouter.get('/', (req, res) => {
 
 serviceMembersRouter.get('/:memberName', (req, res) => {
     const { serviceName, memberName } = req.params;
+    console.log(req.params);
 
     if (!servicesData.includes(serviceName)) {
         return res.send('Services page: such service is not recognized...');

@@ -1,1 +1,6 @@
-export const members = ['chuck', 'kacioks', 'simpsonas']
+export const members = [
+    'Donatelas',
+    'Leonardas',
+    'Rafaelas',
+    'Mikelandzelas',
+];

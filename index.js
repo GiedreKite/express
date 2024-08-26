@@ -5,9 +5,17 @@ import { discountRouter } from './router/discountRouter.js';
 import { studentsRouter } from './router/studentsRouter.js';
 import { booksRouter } from './router/booksRouter.js';
 import { phonesRouter } from './router/phonesRouter.js';
+import { apiRouter } from './router/apiRouter.js';
+
+
 
 const app = express();
 const port = 3000;
+
+app.use(express.json()) 
+// for parsing application/json
+app.use(express.urlencoded({ extended: true })) 
+// for parsing application/x-www-form-urlencoded
 
 app.get('/', (req, res) => {
     return res.send('Home page');
@@ -31,6 +39,7 @@ app.use('/discount', discountRouter);
 app.use('/students', studentsRouter);
 app.use('/books', booksRouter);
 app.use('/phones', phonesRouter);
+app.use('/api',apiRouter);
 
 app.get('*', (req, res) => {
     return res.send('Ups... 404 page 🛸');
